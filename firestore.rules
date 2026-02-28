@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Journeys ──────────────────────────────────────────────
+    match /journeys/{journeyId} {
+      // Owner can read their own journey
+      allow read: if request.auth != null
+                  && resource.data.userId == request.auth.uid;
+
+      // Owner can update/delete their own journey
+      allow update, delete: if request.auth != null
+                             && resource.data.userId == request.auth.uid;
+
+      // Authenticated user can create a journey if they set themselves as owner
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+    }
+
+    // ── Places ────────────────────────────────────────────────
+    match /places/{placeId} {
+      allow read: if request.auth != null
+                  && resource.data.userId == request.auth.uid;
+
+      allow update, delete: if request.auth != null
+                             && resource.data.userId == request.auth.uid;
+
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+    }
+
+    // ── Memories ──────────────────────────────────────────────
+    match /memories/{memoryId} {
+      allow read: if request.auth != null
+                  && resource.data.userId == request.auth.uid;
+
+      allow update, delete: if request.auth != null
+                             && resource.data.userId == request.auth.uid;
+
+      allow create: if request.auth != null
+                    && request.resource.data.userId == request.auth.uid;
+    }
+
+    // ── User profiles (optional) ──────────────────────────────
+    match /users/{userId} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+    }
+
+  }
+}
