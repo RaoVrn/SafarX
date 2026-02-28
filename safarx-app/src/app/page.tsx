@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { MapPin, Camera, Share2 } from "lucide-react"
 
 export default function HomePage() {
@@ -6,17 +7,17 @@ export default function HomePage() {
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="text-xl font-semibold text-white">
+          <Link href="/" className="text-xl font-semibold text-white hover:text-zinc-200 transition-colors">
             SafarX
-          </div>
+          </Link>
           
           <div className="flex items-center space-x-4">
-            <button className="text-zinc-400 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/login" className="text-zinc-400 hover:text-white transition-colors text-sm font-medium">
               Login
-            </button>
-            <button className="bg-white text-black px-4 py-2 rounded-xl font-medium text-sm hover:bg-zinc-100 transition-colors">
+            </Link>
+            <Link href="/register" className="bg-white text-black px-4 py-2 rounded-xl font-medium text-sm hover:bg-zinc-100 transition-colors">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -54,16 +55,16 @@ export default function HomePage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-white text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-zinc-100 transition-all duration-200 hover:scale-105 shadow-xl">
+            <Link href="/register" className="bg-white text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-zinc-100 transition-all duration-200 hover:scale-105 shadow-xl">
               Start Your Journey
-            </button>
+            </Link>
             
-            <button className="flex items-center justify-center bg-transparent border border-zinc-600 text-white px-8 py-4 rounded-xl font-medium text-lg hover:border-zinc-500 hover:bg-zinc-900/50 transition-all duration-200">
+            <Link href="/login" className="flex items-center justify-center bg-transparent border border-zinc-600 text-white px-8 py-4 rounded-xl font-medium text-lg hover:border-zinc-500 hover:bg-zinc-900/50 transition-all duration-200">
               Watch Demo
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
