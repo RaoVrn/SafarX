@@ -43,3 +43,15 @@ export interface Journey {
   coverImage?: string
   userId: string
 }
+
+export interface JourneyDocument {
+  id: string
+  userId: string
+  title: string
+  description: string
+  coverImage?: string
+  startDate?: string
+  endDate?: string
+  createdAt: import("firebase/firestore").Timestamp
+  updatedAt: import("firebase/firestore").Timestamp
+}

@@ -89,5 +89,7 @@ desktop.ini
 serviceAccountKey.json
 *-serviceAccount.json
 
-# ─── Vercel ──────────────────────────────────────────────────────────────────
+# ─── Deployment ──────────────────────────────────────────────────────────────
 .vercel
+.sentry-native/
+.sentryclirc
